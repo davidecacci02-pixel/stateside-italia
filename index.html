@@ -1552,7 +1552,7 @@
       .price-disclaimer .lucide { width: 21px; height: 21px; color: #17619e; flex: none; margin-top: 2px; }
       .price-disclaimer p { margin: 0; } .price-disclaimer strong { color: #0b1f35; }
 
-      /* --- SEZIONE 7: finale compatta + popup --- */
+      /* --- SEZIONE 7: finale compatta (call Calendly + WhatsApp) --- */
       .final-sec { background: #f7fafc; color: #0e2742; color-scheme: light; padding: 84px 0; text-align: center; }
       @media (max-width: 640px) { .final-sec { padding: 60px 0; } }
       .final-sec .ed-kicker { color: #17619e; justify-content: center; }
@@ -1568,84 +1568,8 @@
       .final-sec .btn-ghost .lucide { color: #0b1f35; }
       .final-sec .btn-ghost:hover { background: #0b1f35; color: #ffffff; }
       .final-sec .btn-ghost:hover .lucide { color: #ffffff; }
-      /* --- POPUP: versione elegante — header centrato serif, campi curati, ombra morbida --- */
-      .modal { position: fixed; inset: 0; z-index: 200; display: flex; align-items: flex-end; justify-content: center; }
-      @media (min-width: 640px) { .modal { align-items: center; padding: 28px; } }
-      .modal[hidden] { display: none !important; }
-      .modal-backdrop { position: absolute; inset: 0; background: rgba(5,16,30,.66); backdrop-filter: blur(10px) saturate(1.15); -webkit-backdrop-filter: blur(10px) saturate(1.15); animation: modalFade .35s ease; }
-      .modal-card {
-        position: relative; color: #0e2742; color-scheme: light;
-        background: linear-gradient(180deg, #fffefa 0%, #f7fafc 100%);
-        width: 100%; max-width: 660px; max-height: 92vh; overflow-y: auto;
-        border-radius: 26px 26px 0 0; padding: 48px 48px 40px;
-        box-shadow: inset 0 4px 0 0 #17619e, 0 50px 110px rgba(2,10,22,.55), 0 4px 18px rgba(2,10,22,.28);
-        animation: modalUp .5s cubic-bezier(.22,.9,.26,1);
-        scrollbar-width: thin; scrollbar-color: #b9cfe0 transparent;
-      }
-      @media (min-width: 640px) { .modal-card { border-radius: 26px; } }
-      @media (max-width: 640px) { .modal-card { padding: 38px 22px 30px; } }
-      @keyframes modalFade { from { opacity: 0; } }
-      @keyframes modalUp { from { opacity: 0; transform: translateY(30px) scale(.975); } to { opacity: 1; transform: none; } }
-      .modal-x { position: absolute; top: 16px; right: 16px; width: 44px; height: 44px; border-radius: 50%; border: 1px solid #dbe6f0; background: rgba(255,255,255,.9); color: #0e2742; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 14px rgba(12,43,74,.08); transition: background .25s ease, transform .25s ease, box-shadow .25s ease; z-index: 2; }
-      .modal-x:hover { background: #eef4fa; transform: rotate(90deg); box-shadow: 0 6px 18px rgba(12,43,74,.14); }
-      .modal-x .lucide { width: 20px; height: 20px; }
-      .modal-head { text-align: center; margin-bottom: 32px; padding: 0 30px; }
-      @media (max-width: 640px) { .modal-head { padding: 0 12px; } }
-      .modal-head .m-kicker { display: flex; align-items: center; justify-content: center; gap: 14px; font-size: .72rem; font-weight: 600; letter-spacing: .3em; text-transform: uppercase; color: #17619e; margin: 0 0 14px; }
-      .modal-head .m-kicker::before, .modal-head .m-kicker::after { content: ""; width: 28px; height: 1px; background: #b8cfe2; flex: none; }
-      .modal-head h3 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: clamp(2.2rem, 5vw, 2.8rem); line-height: 1.04; letter-spacing: .005em; margin: 0; color: #0b1f35; text-wrap: balance; }
-      .modal-head h3 em { font-style: italic; color: #17619e; }
-      .modal-head p { margin: 12px auto 0; max-width: 30em; color: #49637e; font-weight: 300; line-height: 1.6; }
-      .modal-head::after { content: ""; display: block; width: 58px; height: 2px; margin: 22px auto 0; border-radius: 2px; background: linear-gradient(90deg, transparent, #17619e, transparent); }
-      form.modal-form { background: transparent; border: 0; box-shadow: none; padding: 0; border-radius: 0; }
-      .modal-card .field { margin-bottom: 20px; }
-      .modal-card .field-row { gap: 18px; }
-      .modal-card label { font-size: .8rem; font-weight: 600; letter-spacing: .13em; text-transform: uppercase; color: #33526e; margin-bottom: 8px; }
-      .modal-card label .opt { letter-spacing: .02em; text-transform: none; color: #7b93a9; font-weight: 400; }
-      .modal-card input[type="text"], .modal-card input[type="email"], .modal-card select, .modal-card textarea {
-        background: #ffffff; border: 1px solid #d3e0ec; border-radius: 12px;
-        min-height: 52px; padding: 12px 15px; color: #0b1f35;
-        box-shadow: 0 1px 2px rgba(12,43,74,.04);
-        transition: border-color .25s ease, box-shadow .25s ease;
-      }
-      .modal-card textarea { min-height: 104px; }
-      .modal-card select {
-        appearance: none; -webkit-appearance: none; padding-right: 42px; cursor: pointer;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2317619e' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
-        background-repeat: no-repeat; background-position: right 15px center; background-size: 16px;
-      }
-      .modal-card input::placeholder, .modal-card textarea::placeholder { color: #93a9bd; }
-      .modal-card input:focus, .modal-card select:focus, .modal-card textarea:focus {
-        outline: none; border-color: #17619e; box-shadow: 0 0 0 4px rgba(23,97,158,.14);
-      }
-      .modal-card .field.invalid input, .modal-card .field.invalid select { border-color: #b31942; box-shadow: 0 0 0 4px rgba(179,25,66,.10); }
-      .modal-card .btn-accent {
-        background: linear-gradient(120deg, #0c2b4a, #17619e); color: #ffffff;
-        min-height: 58px; font-size: 1.02rem; letter-spacing: .05em; border-radius: 999px;
-        box-shadow: 0 16px 32px rgba(12,43,74,.28);
-      }
-      .modal-card .btn-accent:hover { filter: brightness(1.12); transform: translateY(-2px); }
-      .modal-card .btn-accent .lucide { color: #ffffff; }
-      .modal-card .btn-outline { border-color: #c3d5e5; color: #0c2b4a; background: #ffffff; }
-      .modal-card .btn-outline:hover { border-color: #17619e; }
-      .modal-card .form-note { color: #5d7186; margin-top: 18px; line-height: 1.55; }
-      .modal-success { background: transparent; border: 0; box-shadow: none; padding: 0; border-radius: 0; }
-      .modal-success h3 { color: #0b1f35; font-size: 1.9rem; }
-      .modal-success p { color: #49637e; }
-      .modal-success pre { background: #eef4fa; border: 1px solid #d9e6f1; border-radius: 14px; padding: 18px; color: #0e2742; }
-      .modal-success .wa-alt { font-size: .92rem; margin: 2px 0 0; }
-      .modal-success .wa-alt a { color: #17619e; font-weight: 600; }
-      .modal-error h3 { color: #0b1f35; }
-      .modal-error h3 .lucide { color: #b31942; }
-      .modal-error .wa-alt { font-size: .92rem; margin: 2px 0 18px; }
-      .modal-error .wa-alt a { color: #17619e; font-weight: 600; }
-      .modal-error .btn-retry { width: 100%; }
-      .modal-card .btn-accent[disabled] { opacity: .65; pointer-events: none; }
-      .gform-frame { display: none; width: 0; height: 0; border: 0; }
-      body.modal-open { overflow: hidden; }
       @media (prefers-reduced-motion: reduce) {
         .svc-photo img, .svc-strip img { animation: none !important; }
-        .modal-card, .modal-backdrop { animation: none !important; }
       }
 
       /* --- MODELLO (01) come nella preview Americana: sfondo chiaro, tipografia
@@ -2167,7 +2091,6 @@
           <a href="#come-funziona" data-home-link>Come funziona</a>
           <a href="#prezzo" data-home-link>Prezzo</a>
           <a href="#faq" data-home-link>FAQ</a>
-          <a class="cta-ghost" href="#prenota" data-home-link>Compila il modulo</a>
           <a class="cta js-calendly" href="https://calendly.com/davidecacci02/30min" target="_blank" rel="noopener">Prenota la consulenza gratuita</a>
         </nav>
       </div>
@@ -2601,16 +2524,15 @@
         </div>
       </section>
 
-      <!-- SEZIONE 7 — finale compatta: il modulo vive nel popup -->
+      <!-- SEZIONE 7 — finale compatta: solo call Calendly e WhatsApp -->
       <section id="prenota" class="final-sec">
         <div class="wrap">
           <div class="final-in reveal">
             <p class="ed-kicker">07 — Primo passo</p>
             <h2 class="ed-h2">Prenota la tua consulenza <em>gratuita</em></h2>
-            <p class="final-lede">30 minuti per parlare di obiettivi, budget e tempistiche — senza impegno. Prenota la call su Calendly (si apre in una nuova scheda), oppure compila il modulo breve e invii tutto su WhatsApp.</p>
+            <p class="final-lede">30 minuti per parlare di obiettivi, budget e tempistiche — senza impegno. Prenota la call su Calendly (si apre in una nuova scheda), oppure scrivici direttamente su WhatsApp.</p>
             <div class="final-actions">
               <a class="btn btn-accent js-calendly" href="https://calendly.com/davidecacci02/30min" target="_blank" rel="noopener"><i data-lucide="video"></i>Prenota la call gratuita</a>
-              <button type="button" class="btn btn-ghost js-open-booking"><i data-lucide="clipboard-pen"></i>Compila il modulo</button>
               <a class="btn btn-ghost" href="https://wa.me/393339030978?text=Ciao!%20Vorrei%20informazioni%20sulla%20consulenza%20gratuita%20per%20studiare%20in%20USA." target="_blank" rel="noopener"><i data-lucide="message-circle"></i>Scrivici su WhatsApp</a>
             </div>
             <p class="final-note">Nessun impegno: la prima videochiamata è gratuita.</p>
@@ -2715,99 +2637,6 @@
     </main>
 
 
-    <!-- POPUP — modulo di qualificazione -->
-    <div class="modal" id="bookingModal" hidden>
-      <div class="modal-backdrop" data-close-modal></div>
-      <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <button type="button" class="modal-x" data-close-modal aria-label="Chiudi il modulo"><i data-lucide="x"></i></button>
-        <div class="modal-head">
-          <p class="m-kicker">Consulenza gratuita · 30 minuti</p>
-          <h3 id="modalTitle">Raccontaci dove vuoi <em>arrivare</em></h3>
-          <p>Compila il modulo breve: prepari la richiesta e la invii, senza impegno.</p>
-        </div>
-            <form class="booking modal-form" id="bookingForm" novalidate action="https://docs.google.com/forms/d/e/1FAIpQLSdCyQIB9Q65Am8ajCyErqBZSm973Fj9hKsMiHHoH2odzwSkbQ/formResponse" method="post" target="gformFrame">
-              <div class="field-row">
-                <div class="field" data-required>
-                  <label for="f-name">Nome e cognome</label>
-                  <input type="text" id="f-name" name="entry.527300663" autocomplete="name" placeholder="Es. Giulia Rossi" />
-                  <p class="err">Inserisci il tuo nome.</p>
-                </div>
-                <div class="field" data-required>
-                  <label for="f-email">Email</label>
-                  <input type="email" id="f-email" name="entry.87537008" autocomplete="email" placeholder="nome@esempio.it" />
-                  <p class="err">Inserisci un indirizzo email valido.</p>
-                </div>
-              </div>
-              <div class="field-row">
-                <div class="field" data-required>
-                  <label for="f-level">Quale percorso ti interessa?</label>
-                  <select id="f-level" name="entry.1538152566">
-                    <option value="">Seleziona…</option>
-                    <option>Bachelor / Laurea triennale</option>
-                    <option>Master / Laurea magistrale</option>
-                    <option>Altro programma di studio</option>
-                  </select>
-                  <p class="err">Seleziona un'opzione.</p>
-                </div>
-                <div class="field">
-                  <label for="f-when">Quando vorresti partire?</label>
-                  <select id="f-when" name="entry.774506457">
-                    <option value="">Seleziona…</option>
-                    <option>2027</option>
-                    <option>2028</option>
-                    <option>Più avanti / non so ancora</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field-row">
-                <div class="field">
-                  <label for="f-budget">Budget indicativo</label>
-                  <select id="f-budget" name="entry.714388363">
-                    <option value="">Seleziona…</option>
-                    <option>Meno di $20.000 all'anno</option>
-                    <option>$20.000–$40.000 all'anno</option>
-                    <option>Più di $40.000 all'anno</option>
-                    <option>Non lo so / cerco borse di studio</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="f-help">In cosa hai più bisogno di aiuto?</label>
-                  <select id="f-help" name="entry.90337527">
-                    <option value="">Seleziona…</option>
-                    <option>Scelta delle università</option>
-                    <option>Borse di studio e costi</option>
-                    <option>Application e test</option>
-                    <option>Tutto il percorso</option>
-                  </select>
-                </div>
-              </div>
-              <div class="field">
-                <label for="f-msg">Messaggio <span class="opt">(facoltativo)</span></label>
-                <textarea id="f-msg" name="entry.1087775866" placeholder="Es. Sono al terzo anno di triennale, vorrei un master in marketing negli USA ma non so da dove iniziare…"></textarea>
-              </div>
-              <input type="hidden" name="fvv" value="1" />
-              <input type="hidden" name="draftResponse" value="[]" />
-              <input type="hidden" name="pageHistory" value="0" />
-              <input type="hidden" name="fbzx" value="6252864327294076235" />
-              <button type="submit" class="btn btn-accent" id="bookingSubmit"><i data-lucide="send"></i>Prepara la mia richiesta</button>
-              <p class="form-note">Nessun impegno: la prima videochiamata è gratuita. Inviando accetti di essere ricontattato per fissarla.</p>
-            </form>
-            <div class="success modal-success" id="successBox" role="status">
-              <h3><i data-lucide="check-circle-2"></i>Richiesta inviata</h3>
-              <p>Grazie! Abbiamo ricevuto la tua richiesta: ti ricontatteremo per fissare la videochiamata gratuita di 30 minuti.</p>
-              <p class="wa-alt"><a href="https://wa.me/393339030978?text=Ciao!%20Vorrei%20informazioni%20sulla%20consulenza%20gratuita%20per%20studiare%20in%20USA." target="_blank" rel="noopener">oppure scrivici direttamente su WhatsApp</a></p>
-            </div>
-            <div class="success modal-success modal-error" id="errorBox" role="alert">
-              <h3><i data-lucide="alert-circle"></i>Invio non riuscito</h3>
-              <p>Invio non riuscito, controlla la connessione e riprova — oppure scrivici direttamente su WhatsApp.</p>
-              <p class="wa-alt"><a href="https://wa.me/393339030978?text=Ciao!%20Vorrei%20informazioni%20sulla%20consulenza%20gratuita%20per%20studiare%20in%20USA." target="_blank" rel="noopener">Scrivici su WhatsApp</a></p>
-              <button type="button" class="btn btn-accent btn-retry" data-retry><i data-lucide="rotate-ccw"></i>Riprova</button>
-            </div>
-            <iframe name="gformFrame" id="gformFrame" class="gform-frame" title="Invio modulo" aria-hidden="true" tabindex="-1"></iframe>
-      </div>
-    </div>
-
-
     <footer class="ed-foot">
       <div class="wrap">
         <a class="wordmark" href="#top"><i data-lucide="graduation-cap"></i><span class="wm"><span class="wm-name">Stateside Italia</span><span class="wm-tag">Your future in USA starts here.</span></span></a>
@@ -2826,7 +2655,7 @@
     <!-- Barra CTA fissa su telefono -->
     <div class="mobile-cta">
       <a class="btn btn-accent js-calendly" href="https://calendly.com/davidecacci02/30min" target="_blank" rel="noopener"><i data-lucide="video"></i>Call gratuita</a>
-      <a class="btn btn-ink" href="#prenota"><i data-lucide="clipboard-pen"></i>Compila il modulo</a>
+      <a class="btn btn-ink" href="https://wa.me/393339030978?text=Ciao!%20Vorrei%20informazioni%20sulla%20consulenza%20gratuita%20per%20studiare%20in%20USA." target="_blank" rel="noopener"><i data-lucide="message-circle"></i>WhatsApp</a>
     </div>
 
     <script>
@@ -2890,119 +2719,6 @@
         fillCanton('cantonStars2', 240, 134, 6);
       })();
 
-      // Booking form: validate, then POST the answers with a classic form
-      // submission to the Google Form "Stateside Italia — Richiesta
-      // consulenza gratuita" (responses land in the linked Google Sheet).
-      // The form targets a hidden iframe: the "Richiesta inviata"
-      // confirmation is shown ONLY when that iframe loads Google's
-      // response, which confirms delivery. If nothing loads within
-      // 15 seconds, a gentle error with a WhatsApp alternative is shown
-      // instead — never a false success.
-      (function () {
-        var form = document.getElementById('bookingForm');
-        var success = document.getElementById('successBox');
-        var errorBox = document.getElementById('errorBox');
-        var frame = document.getElementById('gformFrame');
-        var submitBtn = document.getElementById('bookingSubmit');
-        if (!form || !success || !errorBox || !frame) return;
-        var submitBtnHTML = submitBtn ? submitBtn.innerHTML : '';
-        var awaiting = false;
-        var timer = null;
-
-        function fieldWrap(input) { return input.closest('.field'); }
-        function validate() {
-          var ok = true;
-          form.querySelectorAll('[data-required]').forEach(function (wrap) {
-            var input = wrap.querySelector('input, select, textarea');
-            var valid = input.value.trim() !== '';
-            if (input.type === 'email') {
-              valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim());
-            }
-            wrap.classList.toggle('invalid', !valid);
-            if (!valid) ok = false;
-          });
-          return ok;
-        }
-        form.querySelectorAll('input, select, textarea').forEach(function (input) {
-          input.addEventListener('input', function () {
-            var wrap = fieldWrap(input);
-            if (wrap) wrap.classList.remove('invalid');
-          });
-        });
-
-        function scrollCardTop() {
-          var mCard = document.querySelector('.modal-card');
-          if (mCard) mCard.scrollTop = 0;
-        }
-        function restoreSubmitBtn() {
-          if (!submitBtn) return;
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = submitBtnHTML;
-          if (window.lucide) lucide.createIcons();
-        }
-        function showSuccess() {
-          form.style.display = 'none';
-          errorBox.classList.remove('show');
-          success.classList.add('show');
-          if (window.lucide) lucide.createIcons();
-          scrollCardTop();
-        }
-        function showError() {
-          form.style.display = 'none';
-          success.classList.remove('show');
-          errorBox.classList.add('show');
-          restoreSubmitBtn();
-          if (window.lucide) lucide.createIcons();
-          scrollCardTop();
-        }
-
-        // Google's response page loading in the hidden iframe is the
-        // delivery confirmation. Loads before a submit (the initial
-        // blank page) are ignored via the awaiting flag.
-        frame.addEventListener('load', function () {
-          if (!awaiting) return;
-          awaiting = false;
-          if (timer) { clearTimeout(timer); timer = null; }
-          showSuccess();
-        });
-
-        form.addEventListener('submit', function (ev) {
-          if (!validate()) {
-            ev.preventDefault();
-            var firstBad = form.querySelector('.field.invalid input, .field.invalid select');
-            if (firstBad) firstBad.focus();
-            return;
-          }
-          // Valid: let the native POST go to the hidden iframe (no
-          // preventDefault). Track it and wait for the iframe load.
-          awaiting = true;
-          success.classList.remove('show');
-          errorBox.classList.remove('show');
-          if (submitBtn) {
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Invio in corso…';
-          }
-          if (timer) clearTimeout(timer);
-          timer = setTimeout(function () {
-            if (!awaiting) return;
-            awaiting = false;
-            timer = null;
-            showError();
-          }, 15000);
-        });
-
-        var retryBtn = errorBox.querySelector('[data-retry]');
-        if (retryBtn) {
-          retryBtn.addEventListener('click', function () {
-            errorBox.classList.remove('show');
-            form.style.display = '';
-            restoreSubmitBtn();
-            scrollCardTop();
-            var first = document.getElementById('f-name');
-            if (first) first.focus();
-          });
-        }
-      })();
     </script>
 
     <script>
@@ -3099,37 +2815,6 @@
       })();
     </script>
 
-    <script>
-      // Popup del modulo: apertura dal pulsante della sezione finale,
-      // chiusura con X, click sullo sfondo o tasto Esc.
-      (function () {
-        var modal = document.getElementById('bookingModal');
-        if (!modal) return;
-        var lastFocus = null;
-        function openModal() {
-          lastFocus = document.activeElement;
-          modal.hidden = false;
-          document.body.classList.add('modal-open');
-          if (window.lucide) lucide.createIcons();
-          var first = modal.querySelector('#f-name');
-          setTimeout(function () { if (first) first.focus(); }, 60);
-        }
-        function closeModal() {
-          modal.hidden = true;
-          document.body.classList.remove('modal-open');
-          if (lastFocus && lastFocus.focus) lastFocus.focus();
-        }
-        document.querySelectorAll('.js-open-booking').forEach(function (btn) {
-          btn.addEventListener('click', openModal);
-        });
-        modal.querySelectorAll('[data-close-modal]').forEach(function (el) {
-          el.addEventListener('click', closeModal);
-        });
-        document.addEventListener('keydown', function (ev) {
-          if (ev.key === 'Escape' && !modal.hidden) closeModal();
-        });
-      })();
-    </script>
     <!-- Prenotazione Calendly: i pulsanti .js-calendly sono normali link
          con target="_blank" — la pagina Calendly si apre in una nuova
          scheda, completa e funzionante. -->
