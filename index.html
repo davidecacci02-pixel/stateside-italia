@@ -238,6 +238,9 @@
       .collage-row { display: flex; gap: 14px; width: max-content; padding: 7px 0; }
       .collage-row.r1 { animation: slideL 46s linear infinite; }
       .collage-row.r2 { animation: slideR 52s linear infinite; }
+      /* Riga unica SOLO telefono: contiene tutte le 21 foto (r1 + r2)
+         e si attiva sotto i 680px; da computer resta sempre nascosta. */
+      .collage-row.rm { display: none; }
       .collage:hover .collage-row { animation-play-state: paused; }
       @keyframes slideL { to { transform: translateX(-50%); } }
       @keyframes slideR { from { transform: translateX(-50%); } to { transform: translateX(0); } }
@@ -2069,15 +2072,15 @@
          1) Trasparenza: i 3 pannelli non più grandi e impilati uno
             sotto l'altro, ma piccoli e in orizzontale, a scorrimento
             con snap come le altre rotaie della pagina.
-         2) Costi (Gratis / €500): stessa cosa — card più compatte
-            in orizzontale; i prezzi restano grandi e leggibili.
+         2) Costi (Gratis / €500): card ridimensionate e AFFIANCATE
+            in 2 colonne, entrambe sempre visibili, senza scorrimento.
          3) Hero telefono più compatto: spazi ridotti tra titolo,
-            sottotitolo, pulsanti, punti di fiducia e polaroid più
-            piccole; via il grande vuoto tra collage e marquee.
-         4) Polaroid hero in rotaia orizzontale: dritte e affiancate,
-            niente rotazioni né sfalsamenti diagonali.
-         5) Collage foto: una sola riga a scorrimento con tutte le
-            foto intere — niente tagli, niente vuoti blu.
+            sottotitolo, pulsanti e punti di fiducia; via il grande
+            vuoto tra collage e marquee.
+         4) Polaroid hero NASCOSTE su telefono (restano su desktop).
+         5) Collage foto: scorrimento AUTOMATICO in loop continuo
+            (animazione slideL riattivata, copie duplicate incluse),
+            come su desktop.
          ============================================================ */
       @media (max-width: 680px) {
         /* --- 1) Trasparenza: rotaia orizzontale di pannelli piccoli --- */
@@ -2092,17 +2095,22 @@
         .tr-card h3 { font-size: 1.38rem; margin-bottom: 6px; }
         .tr-card p { font-size: .93rem; line-height: 1.5; }
 
-        /* --- 2) Costi: le due card in orizzontale, più compatte --- */
+        /* --- 2) Costi: le due card AFFIANCATE, entrambe sempre visibili,
+           niente scorrimento: griglia a 2 colonne, card ridimensionate
+           e tipografia più piccola così Gratis ed €500 si leggono
+           interi fianco a fianco. --- */
         .am-grid {
-          display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory;
-          padding: 4px 2px 16px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+          display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+          overflow: visible; padding: 4px 0 8px;
         }
-        .am-grid::-webkit-scrollbar { display: none; }
-        .am-card { flex: 0 0 85vw; scroll-snap-align: start; padding: 22px 20px 20px; }
-        .am-card .am-price { font-size: clamp(3.5rem, 16vw, 4.3rem); margin: 6px 0 8px; }
-        .am-card p { font-size: .96rem; line-height: 1.5; }
-        .am-list { margin-top: 14px; gap: 8px; font-size: .93rem; }
-        .am-flow { margin-top: 20px; padding-top: 16px; }
+        .am-card { padding: 16px 13px 14px; border-radius: 14px; }
+        .am-card h3 { font-size: .78rem; letter-spacing: .1em; margin-bottom: 2px; }
+        .am-card .am-price { font-size: clamp(1.85rem, 10.5vw, 2.6rem); margin: 4px 0 6px; line-height: 1; }
+        .am-card p { font-size: .8rem; line-height: 1.45; }
+        .am-list { margin-top: 10px; gap: 7px; font-size: .78rem; line-height: 1.4; }
+        .am-list li { gap: 6px; }
+        .am-list .lucide { width: 13px; height: 13px; margin-top: 1px; }
+        .am-flow { margin-top: 16px; padding-top: 14px; }
 
         /* --- 3) Hero telefono compatto --- */
         .hero-text { padding: 22px 0 0; }
@@ -2122,40 +2130,20 @@
         .flag-card figcaption { font-size: .71rem; padding: 6px 2px 0; }
         .hero-photo { margin: 14px 0 18px; aspect-ratio: 4 / 3; max-height: 300px; }
 
-        /* --- 4) Polaroid hero: dritte, affiancate, in una rotaia
-           orizzontale a scorrimento — niente rotazioni, niente
-           sfalsamenti diagonali, niente vuoto blu a destra --- */
-        .hero-cards {
-          flex-wrap: nowrap; align-items: stretch;
-          overflow-x: auto; overflow-y: hidden;
-          scroll-snap-type: x mandatory;
-          padding: 6px 2px 16px;
-          scrollbar-width: none; -webkit-overflow-scrolling: touch;
-        }
-        .hero-cards::-webkit-scrollbar { display: none; }
-        .hero-card, .flag-card {
-          flex: 0 0 auto; scroll-snap-align: start;
-          transform: none; animation: none; margin-top: 0;
-        }
+        /* --- 4) Polaroid hero: NASCOSTE su telefono (richiesta di
+           Davide) — restano visibili solo da computer. --- */
+        .hero-cards { display: none; }
 
-        /* --- 5) Collage foto: UNA sola riga orizzontale a scorrimento.
-           Le due righe animate diventano un'unica rotaia: tutte le foto
-           intere e visibili, niente tagli ai bordi, niente vuoti blu.
-           Le copie duplicate (servono al loop infinito su desktop)
-           su telefono si nascondono: ogni foto resta, una sola volta. --- */
-        .collage {
-          display: flex; gap: 10px;
-          overflow-x: auto; overflow-y: hidden;
-          scroll-snap-type: x proximity;
-          padding: 12px 20px 14px;
-          scrollbar-width: none; -webkit-overflow-scrolling: touch;
-        }
-        .collage::-webkit-scrollbar { display: none; }
-        .collage::after { content: ""; flex: 0 0 10px; }
-        .collage-row { display: contents; animation: none; }
-        .collage figure { scroll-snap-align: start; }
-        .collage-row.r1 figure:nth-child(n+12),
-        .collage-row.r2 figure:nth-child(n+11) { display: none; }
+        /* --- 5) Collage foto: SCORRIMENTO AUTOMATICO in loop continuo,
+           come su desktop, ma in UNA sola striscia con TUTTE le 21 foto:
+           le due righe desktop (r1 + r2) si nascondono e al loro posto
+           scorre la riga unica .rm, che contiene le 11 foto di r1 e le
+           10 di r2, duplicate una volta per chiudere il loop -50%
+           senza scatti. Durata proporzionata al numero di foto. --- */
+        .collage { display: block; overflow: hidden; padding: 12px 0 14px; }
+        .collage-row.r1 { display: none; }
+        .collage-row.r2 { display: none; }
+        .collage-row.rm { display: flex; animation: slideL 88s linear infinite; }
         .collage img { height: 102px; }
         .marquee { padding: 11px 0; }
       }
@@ -2261,6 +2249,52 @@
           <figure><img src="assets/img-20.webp" alt="" /></figure>
           <figure><img src="assets/img-21.jpg" alt="" /></figure>
           <figure><img src="assets/img-22.jpg" alt="" /></figure>
+          <figure><img src="assets/img-14.jpg" alt="" /></figure>
+          <figure><img src="assets/img-15.jpg" alt="" /></figure>
+          <figure><img src="assets/img-16.jpg" alt="" /></figure>
+          <figure><img src="assets/img-17.jpg" alt="" /></figure>
+          <figure><img src="assets/img-02.jpg" alt="" /></figure>
+          <figure><img src="assets/img-18.jpg" alt="" /></figure>
+          <figure><img src="assets/img-19.jpg" alt="" /></figure>
+          <figure><img src="assets/img-20.webp" alt="" /></figure>
+          <figure><img src="assets/img-21.jpg" alt="" /></figure>
+          <figure><img src="assets/img-22.jpg" alt="" /></figure>
+        </div>
+        <!-- Riga unica SOLO telefono: tutte le 21 foto (r1 + r2) in un
+             solo loop continuo; le copie duplicate chiudono il -50%. -->
+        <div class="collage-row rm">
+          <figure><img src="assets/img-04.jpg" alt="" /></figure>
+          <figure><img src="assets/img-05.jpg" alt="" /></figure>
+          <figure><img src="assets/img-06.jpg" alt="" /></figure>
+          <figure><img src="assets/img-07.jpg" alt="" /></figure>
+          <figure><img src="assets/img-08.jpg" alt="" /></figure>
+          <figure><img src="assets/img-09.jpg" alt="" /></figure>
+          <figure><img src="assets/img-10.jpg" alt="" /></figure>
+          <figure><img src="assets/img-11.jpg" alt="" /></figure>
+          <figure><img src="assets/img-01.jpg" alt="" /></figure>
+          <figure><img src="assets/img-12.jpg" alt="" /></figure>
+          <figure><img src="assets/img-13.jpg" alt="" /></figure>
+          <figure><img src="assets/img-14.jpg" alt="" /></figure>
+          <figure><img src="assets/img-15.jpg" alt="" /></figure>
+          <figure><img src="assets/img-16.jpg" alt="" /></figure>
+          <figure><img src="assets/img-17.jpg" alt="" /></figure>
+          <figure><img src="assets/img-02.jpg" alt="" /></figure>
+          <figure><img src="assets/img-18.jpg" alt="" /></figure>
+          <figure><img src="assets/img-19.jpg" alt="" /></figure>
+          <figure><img src="assets/img-20.webp" alt="" /></figure>
+          <figure><img src="assets/img-21.jpg" alt="" /></figure>
+          <figure><img src="assets/img-22.jpg" alt="" /></figure>
+          <figure><img src="assets/img-04.jpg" alt="" /></figure>
+          <figure><img src="assets/img-05.jpg" alt="" /></figure>
+          <figure><img src="assets/img-06.jpg" alt="" /></figure>
+          <figure><img src="assets/img-07.jpg" alt="" /></figure>
+          <figure><img src="assets/img-08.jpg" alt="" /></figure>
+          <figure><img src="assets/img-09.jpg" alt="" /></figure>
+          <figure><img src="assets/img-10.jpg" alt="" /></figure>
+          <figure><img src="assets/img-11.jpg" alt="" /></figure>
+          <figure><img src="assets/img-01.jpg" alt="" /></figure>
+          <figure><img src="assets/img-12.jpg" alt="" /></figure>
+          <figure><img src="assets/img-13.jpg" alt="" /></figure>
           <figure><img src="assets/img-14.jpg" alt="" /></figure>
           <figure><img src="assets/img-15.jpg" alt="" /></figure>
           <figure><img src="assets/img-16.jpg" alt="" /></figure>
